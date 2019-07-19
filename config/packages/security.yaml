@@ -11,7 +11,15 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+
             anonymous: true
+
+            guard:
+                authenticators:
+                    - App\Security\FormLoginAuthenticator
+
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
