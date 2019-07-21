@@ -16,15 +16,15 @@ security:
         main:
 
             anonymous: true
-
             guard:
                 authenticators:
-                    - App\Security\FormLoginAuthenticator
+                    - App\Security\TestAuthenticator
             logout:
                 path: app_logout
-            remember_me:
-                secret: '%kernel.secret%'
-                lifetime: 2092000
+
+
+
+
 
                 # where to redirect after logout
                 # target: app_any_route

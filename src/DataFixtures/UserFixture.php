@@ -28,6 +28,18 @@ class UserFixture extends BaseFixture
             $user->setEmail(sprintf('user%d@test.com',$i));
             $user->setFirstName($this->faker->firstName);
             $user->setPassword($this->passwordEncoder->encodePassword($user,'test'));
+            if($this->faker->boolean){
+                $user->setTwitterUsername($this->faker->userName);
+            }
+            return $user;
+
+        });
+        $this->createMany(3,"main_admin",function ($i){
+            $user = new User();
+            $user->setEmail(sprintf('admin%d@test.com',$i));
+            $user->setFirstName($this->faker->firstName);
+            $user->setPassword($this->passwordEncoder->encodePassword($user,'test'));
+            $user->setRoles(['ROLE_ADMIN']);
             return $user;
 
         });
